@@ -3,6 +3,9 @@ import Activity.ToDo;
 import Activity.Task;
 
 public class Habit extends ToDo {
+    private int new_start_time; // setStartTime should make an int from start_time. I was not sure if I should put this int into the frequency attribute 
+                                // or I should make a new attribute. So i made a new attribute. but if it was meant to be put into the frequency attribute
+                                // This can be easily achived by replacing the new_start_time attribute with frequency attribute in setStartTime method 
     private int frequency;
     private String category;
     public Habit() {
@@ -33,10 +36,10 @@ public class Habit extends ToDo {
 
     // methods
     @Override public String getInfo() {
-        String info = super.getInfo() + "\nThe frequency of the habit is: " + frequency + "\nThe category of the habit is: " + category;
+        String info = super.getInfo() + "\nThe frequency of the habit is: " + frequency + "\nThe category of the habit is: " + category + "\n The new start time (Integer) of the habit is: " + new_start_time;
         return info;
     }
     @Override public void setStartTime(double start_time) {
-        super.setStartTime(start_time);
+        new_start_time = (int) start_time;
     }
 }
